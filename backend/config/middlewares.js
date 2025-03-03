@@ -6,12 +6,9 @@ module.exports = [
     name: 'strapi::cors',
     config: {
       origin: [
-        'https://www2.math.sc.chula.ac.th',
-        'http://www2.math.sc.chula.ac.th',
-        'http://18.139.247.123:5173',
         'http://localhost:5173',
-        'http://www2.math.sc.chula.ac.th/docker-project/api',
-        'http://www2.math.sc.chula.ac.th/docker-project'
+        'http://47.128.3.91:5173', 
+        'http://47.128.3.91:1337'  
       ],
     },
   },

@@ -4,42 +4,57 @@ services:
   backend:
     build: ./backend
     ports:
-      - "1337:1337"
+      - '1337:1337'
     depends_on:
       - db
-    env_file: ./backend/.env
-    networks:
-      - app-network
+    environment:
+      HOST: 0.0.0.0
+      PORT: 1337
+      APP_KEYS: "DKwQ8q9lfHuneBaSt5xe5Q==,OfCcLVcxYk6m3GtBTIYzYA==,+JhM8jgr4Cg/eZBSJo7aXA==,41GNPHzr9m2V64fQaBGGJg=="
+      API_TOKEN_SALT: "VWkBpOL6P4KrWAG+oXgQCw=="
+      ADMIN_JWT_SECRET: "6O5AKqocaYtMMGYBIYxV1A=="
+      TRANSFER_TOKEN_SALT: "hOnQ1blh+VSKkUBjaxF5pQ=="
+      JWT_SECRET: "dtjgPhF/MRLPyjk3ZpinZA=="
+      DATABASE_CLIENT: mysql
+      DATABASE_HOST: db
+      DATABASE_PORT: 3306
+      DATABASE_NAME: TestAPI
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: KazehayaRyo
+      DATABASE_SSL: 'false'
+      PUBLIC_URL: http://www2.math.sc.chula.ac.th/strapi-backend
 
   frontend:
     build:
       context: ./frontend
     ports:
-      - "5173:5173"
+      - '5173:5173'
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - VITE_BASE_PATH=/docker-project/
+      - VITE_API_URL=http://www2.math.sc.chula.ac.th/strapi-backend
     depends_on:
       - backend
-    env_file: ./frontend/.env
     command: npm run dev -- --host 0.0.0.0
-    networks:
-      - app-network
 
   db:
     image: mysql:5.7
     platform: linux/amd64
     command: --default-authentication-plugin=mysql_native_password
     ports:
-      - "3307:3306"
+      - '3307:3306'
     environment:
       MYSQL_ROOT_PASSWORD: KazehayaRyo
       MYSQL_DATABASE: TestAPI
     volumes:
       - ./data:/var/lib/mysql
-    networks:
-      - app-network
+
+volumes:
+  data:
 
 networks:
-  app-network:
+  default:
     name: app-network

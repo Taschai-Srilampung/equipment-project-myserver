@@ -144,152 +144,174 @@ function UserDetail() {
 
   const handleFileChange2 = ({ fileList }) => setFileList2(fileList);
 
-  const handleSaveMaintenance = async (values) => {
-    try {
-      const formData = new FormData();
-      const currentDate = new Date();
-      const dateToDo = values.dateToDo
-        ? new Date(values.dateToDo)
-        : currentDate;
+const handleSaveMaintenance = async (values) => {
+  try {
+    const formData = new FormData();
+    const currentDate = new Date();
 
-      let newDueDate = null;
-      if (values.newDueDateType === "formInput" && values.formInputDate) {
-        // คำนวณวันที่จากจำนวนวันที่ใส่
-        newDueDate = new Date(
-          dateToDo.getTime() +
-            parseInt(values.formInputDate) * 24 * 60 * 60 * 1000
-        );
-      } else if (
-        values.newDueDateType === "datePicker" &&
-        values.datePickerDate
-      ) {
-        newDueDate = new Date(values.datePickerDate);
-      }
-
-      const maintenanceData = {
-        inventory: id,
-        isSubInventory: clickedButtonM === "sub",
-        sub_inventory:
-          clickedButtonM === "sub" ? selectedSubInventoryIdM : null,
-        isDone: true,
-        reportedBy: user?.responsible?.id,
-        company_inventory: values.companyInventory,
-        NameMaintenance: values.nameMaintenance,
-        DetailMaintenance: values.detailMaintenance,
-        prize: values.prize,
-        DateToDo: dateToDo.toISOString(),
-        newDueDate: newDueDate ? newDueDate.toISOString() : null,
-      };
-
-      formData.append("data", JSON.stringify(maintenanceData));
-
-      fileList2.forEach((file) => {
-        formData.append("files.FileMaintenanceByAdmin", file.originFileObj);
-      });
-
-      const response = await fetch(`${API_URL}/api/maintenance-reports`, {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error(`Response not OK: ${response.status}`);
-      }
-
-      // สร้างการนัดหมายใหม่ถ้ามี newDueDate
-      if (newDueDate) {
-        const appointmentData = {
-          inventory: id,
-          isSubInventory: clickedButtonM === "sub",
-          sub_inventory:
-            clickedButtonM === "sub" ? selectedSubInventoryIdM : null,
-          isDone: false,
-          reportedBy: 2,
-          DetailMaintenance: values.detailMaintenance,
-          DueDate: newDueDate.toISOString(),
-        };
-
-        const appointmentResponse = await fetch(
-          `${API_URL}/api/maintenance-reports`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ data: appointmentData }),
-          }
-        );
-
-        if (!appointmentResponse.ok) {
-          throw new Error(
-            `Appointment creation failed: ${appointmentResponse.status}`
-          );
-        }
-      }
-
-      message.success("เพิ่มข้อมูลบำรุงรักษาสำเร็จแล้ว");
-      closeModalMan();
-      // window.location.reload();
-    } catch (error) {
-      message.error(`เกิดข้อผิดพลาดในเพิ่มข้อมูลบำรุงรักษา: ${error.message}`);
+    // แก้ไข DateToDo
+    const dateToDo = values.dateToDo
+      ? new Date(values.dateToDo)
+      : currentDate;
+    if (isNaN(dateToDo)) {
+      throw new Error("วันที่ใน DateToDo ไม่ถูกต้อง");
     }
-  };
 
-  const handleAddAppointment = async (values) => {
-    try {
-      const currentDate = new Date();
-
-      let dueDate = null;
-      if (values.newDueDateType === "formInput" && values.formInputDate) {
-        // คำนวณวันที่จากจำนวนวันที่ใส่
-        dueDate = new Date(
-          currentDate.getTime() +
-            parseInt(values.formInputDate) * 24 * 60 * 60 * 1000
-        );
-      } else if (
-        values.newDueDateType === "datePicker" &&
-        values.datePickerDate
-      ) {
-        dueDate = new Date(values.datePickerDate);
+    let newDueDate = null;
+    if (values.newDueDateType === "formInput" && values.formInputDate) {
+      // คำนวณวันที่จากจำนวนวันที่กรอก
+      newDueDate = new Date(
+        dateToDo.getTime() +
+          parseInt(values.formInputDate, 10) * 24 * 60 * 60 * 1000
+      );
+    } else if (
+      values.newDueDateType === "datePicker" &&
+      values.datePickerDate
+    ) {
+      const selectedDate = new Date(values.datePickerDate);
+      if (isNaN(selectedDate)) {
+        throw new Error("วันที่จาก DatePicker ไม่ถูกต้อง");
       }
+      newDueDate = new Date(
+        selectedDate.getFullYear(),
+        selectedDate.getMonth(),
+        selectedDate.getDate(),
+        7, // เวลา 07:00 น. (UTC+7)
+        0,
+        0
+      );
+    }
 
-      if (!dueDate) {
-        throw new Error("กรุณาระบุวันนัดหมาย");
-      }
+    const maintenanceData = {
+      inventory: id,
+      isSubInventory: clickedButtonM === "sub",
+      sub_inventory: clickedButtonM === "sub" ? selectedSubInventoryIdM : null,
+      isDone: true,
+      reportedBy: user?.responsible?.id,
+      company_inventory: values.companyInventory,
+      NameMaintenance: values.nameMaintenance,
+      DetailMaintenance: values.detailMaintenance,
+      prize: values.prize,
+      DateToDo: dateToDo.toISOString(),
+      newDueDate: newDueDate ? newDueDate.toISOString() : null,
+    };
 
+    formData.append("data", JSON.stringify(maintenanceData));
+
+    fileList2.forEach((file) => {
+      formData.append("files.FileMaintenanceByAdmin", file.originFileObj);
+    });
+
+    const response = await fetch(`${API_URL}/api/maintenance-reports`, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Response not OK: ${response.status}`);
+    }
+
+    // สร้างการนัดหมายใหม่ถ้ามี newDueDate
+    if (newDueDate) {
       const appointmentData = {
         inventory: id,
         isSubInventory: clickedButtonM === "sub",
-        sub_inventory:
-          clickedButtonM === "sub" ? selectedSubInventoryIdM : null,
-        reportedBy: 2,
+        sub_inventory: clickedButtonM === "sub" ? selectedSubInventoryIdM : null,
         isDone: false,
-        DetailMaintenance: values.DetailMaintenance,
-        DueDate: dueDate.toISOString(),
+        reportedBy: 2,
+        DetailMaintenance: values.detailMaintenance,
+        DueDate: newDueDate.toISOString(),
       };
 
-      const response = await fetch(`${API_URL}/api/maintenance-reports`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ data: appointmentData }),
-      });
+      const appointmentResponse = await fetch(
+        `${API_URL}/api/maintenance-reports`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ data: appointmentData }),
+        }
+      );
 
-      if (!response.ok) {
-        const errorData = await response.json();
+      if (!appointmentResponse.ok) {
         throw new Error(
-          `Response not OK: ${response.status} - ${errorData.error.message}`
+          `Appointment creation failed: ${appointmentResponse.status}`
         );
       }
-
-      message.success("เพิ่มนัดหมายบำรุงรักษาสำเร็จแล้ว");
-      closeModalMan();
-      // window.location.reload();
-    } catch (error) {
-      message.error(`เกิดข้อผิดพลาดในเพิ่มนัดหมายบำรุงรักษา: ${error.message}`);
     }
-  };
+
+    message.success("เพิ่มข้อมูลบำรุงรักษาสำเร็จแล้ว");
+    closeModalMan();
+  } catch (error) {
+    message.error(`เกิดข้อผิดพลาดในเพิ่มข้อมูลบำรุงรักษา: ${error.message}`);
+  }
+};
+
+const handleAddAppointment = async (values) => {
+  try {
+    const currentDate = new Date();
+
+    let dueDate = null;
+    if (values.newDueDateType === "formInput" && values.formInputDate) {
+      // คำนวณวันที่จากจำนวนวันที่กรอก
+      dueDate = new Date(
+        currentDate.getTime() +
+          parseInt(values.formInputDate, 10) * 24 * 60 * 60 * 1000
+      );
+    } else if (
+      values.newDueDateType === "datePicker" &&
+      values.datePickerDate
+    ) {
+      const selectedDate = new Date(values.datePickerDate);
+      if (isNaN(selectedDate)) {
+        throw new Error("วันที่จาก DatePicker ไม่ถูกต้อง");
+      }
+      dueDate = new Date(
+        selectedDate.getFullYear(),
+        selectedDate.getMonth(),
+        selectedDate.getDate(),
+        7, // เวลา 07:00 น. (UTC+7)
+        0,
+        0
+      );
+    }
+
+    if (!dueDate) {
+      throw new Error("กรุณาระบุวันนัดหมาย");
+    }
+
+    const appointmentData = {
+      inventory: id,
+      isSubInventory: clickedButtonM === "sub",
+      sub_inventory: clickedButtonM === "sub" ? selectedSubInventoryIdM : null,
+      reportedBy: 2,
+      isDone: false,
+      DetailMaintenance: values.DetailMaintenance,
+      DueDate: dueDate.toISOString(),
+    };
+
+    const response = await fetch(`${API_URL}/api/maintenance-reports`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data: appointmentData }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(
+        `Response not OK: ${response.status} - ${errorData.error.message}`
+      );
+    }
+
+    message.success("เพิ่มนัดหมายบำรุงรักษาสำเร็จแล้ว");
+    closeModalMan();
+  } catch (error) {
+    message.error(`เกิดข้อผิดพลาดในเพิ่มนัดหมายบำรุงรักษา: ${error.message}`);
+  }
+};
 
   // forModal change location
   const openModal2 = () => {

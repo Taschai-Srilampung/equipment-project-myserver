@@ -1,7 +1,7 @@
-module.exports = ({ env }) => ({
+module.exports = ({ env }) => ({ 
   host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
-  url: env('PUBLIC_URL', 'https://www2.math.sc.chula.ac.th'),
+  url: env('PUBLIC_URL', 'http://47.128.3.91'),
   app: {
     keys: env.array('APP_KEYS'),
   },
