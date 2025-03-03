@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "role_in_webs",
+  "info": {
+    "singularName": "role-in-web",
+    "pluralName": "role-in-webs",
+    "displayName": "RoleInWeb"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "RoleName": {
+      "type": "string"
+    }
+  }
+}

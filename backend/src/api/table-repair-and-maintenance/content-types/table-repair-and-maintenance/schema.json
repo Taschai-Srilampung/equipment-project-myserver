@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "table_repair_and_maintenances",
+  "info": {
+    "singularName": "table-repair-and-maintenance",
+    "pluralName": "table-repair-and-maintenances",
+    "displayName": "TableRepairAndMaintenance",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "repair_reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::repair-report.repair-report",
+      "mappedBy": "table_repair_and_maintenance"
+    },
+    "TypeOfReport": {
+      "type": "enumeration",
+      "enum": [
+        "Repair",
+        "Maintenance"
+      ]
+    }
+  }
+}

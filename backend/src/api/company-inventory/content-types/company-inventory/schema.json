@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "company_inventories",
+  "info": {
+    "singularName": "company-inventory",
+    "pluralName": "company-inventories",
+    "displayName": "CompanyInventory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Cname": {
+      "type": "string"
+    },
+    "contactName": {
+      "type": "string"
+    },
+    "Cemail": {
+      "type": "email"
+    },
+    "Caddress": {
+      "type": "text"
+    },
+    "inventories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inventory.inventory",
+      "mappedBy": "company_inventory"
+    },
+    "Cphone": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "taxId": {
+      "type": "string"
+    }
+  }
+}

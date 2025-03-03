@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "status_inventories",
+  "info": {
+    "singularName": "status-inventory",
+    "pluralName": "status-inventories",
+    "displayName": "StatusInventory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "StatusInventoryName": {
+      "type": "string"
+    }
+  }
+}

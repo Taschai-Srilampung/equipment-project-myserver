@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "responsibles",
+  "info": {
+    "singularName": "responsible",
+    "pluralName": "responsibles",
+    "displayName": "Responsible",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "responsibleName": {
+      "type": "string"
+    },
+    "responsibleEmail": {
+      "type": "email"
+    },
+    "responsiblePhone": {
+      "type": "string"
+    },
+    "request_change_locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::request-change-location.request-change-location",
+      "mappedBy": "reportedBy"
+    },
+    "request_sent_backs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::request-sent-back.request-sent-back",
+      "mappedBy": "reportedBy"
+    },
+    "repair_reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::repair-report.repair-report",
+      "mappedBy": "reportedBy"
+    },
+    "maintenance_reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::maintenance-report.maintenance-report",
+      "mappedBy": "reportedBy"
+    },
+    "inventories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::inventory.inventory",
+      "mappedBy": "responsibles"
+    },
+    "employee_id": {
+      "type": "string"
+    }
+  }
+}

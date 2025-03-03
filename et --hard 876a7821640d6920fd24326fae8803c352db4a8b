@@ -1,0 +1,229 @@
+[33mcommit 7fdf8f6e9937e3980aba276406625c5218a9710f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 17:40:44 2024 +0700
+
+    fixTest2
+
+[33mcommit 430cbc02ce4e1942250dea068188cf485939875c[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 17:29:45 2024 +0700
+
+    FrontendDeleteScrupt hook
+
+[33mcommit e31a86f497ac47ef6e034cba2f486a4ce35f72a8[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 17:24:15 2024 +0700
+
+    FixHtml
+
+[33mcommit c9dfa3186671162b6d7e6a8876bb5bec71f1956f[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 12:32:58 2024 +0700
+
+    fixFrontend3viteConfig
+
+[33mcommit bd2e1a61ceb188c5c681c6032a459aab2e66aea8[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 12:01:29 2024 +0700
+
+    FrontendFix
+
+[33mcommit 876a7821640d6920fd24326fae8803c352db4a8b[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 11:34:32 2024 +0700
+
+    Fixbackend2
+
+[33mcommit 8e69b513ee2b29eec3d05c8cc72a9ed8594d8c84[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 11:07:59 2024 +0700
+
+    FixbackendTest1
+
+[33mcommit 4cfdc2374a9ebee002c337b980bd38b9e8a792cc[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 08:15:07 2024 +0700
+
+    FixlinkBackend
+
+[33mcommit 796ae1ee92de1908c6a65cebf9697fcd013d2ee9[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 01:38:19 2024 +0700
+
+    FixMidlewares
+
+[33mcommit 16b952108fe6657b4a8fbd36d3889205df3d5066[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sun Jul 14 01:31:47 2024 +0700
+
+    Fix vite client
+
+[33mcommit 7c07bac960d78e7c79a282df3a98e6e6b0e7f48f[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 23:33:49 2024 +0700
+
+    FixYml
+
+[33mcommit 339f4faddb8d6e727c8ff553582fde8a21768af1[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 23:28:29 2024 +0700
+
+    dockerApacheBeforeComitGood
+
+[33mcommit c30add0bb5f5bad8007a6247d2880a122c6df860[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 22:43:58 2024 +0700
+
+    FixApacheUseWbsocket
+
+[33mcommit 4b43dd7ce71fb0b75f685e3eac80ad68f5886d71[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 22:04:39 2024 +0700
+
+    IndexHTML
+
+[33mcommit 889cba5b422b7cc299602b511b9756b6ceea2897[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 16:10:55 2024 +0700
+
+    Test
+
+[33mcommit fc91ec00dd62734188b61a3a4c9266100628498e[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 15:53:57 2024 +0700
+
+    fixLastIndexViteMain
+
+[33mcommit 46f152dd30cbabf9cf71f6a2733529ffb19e9ffe[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 15:02:04 2024 +0700
+
+    RedirectFixLast
+
+[33mcommit 0e54bc43f47e7b5656a274044d405dbc3c7f1185[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 14:51:27 2024 +0700
+
+    FixRedirect1
+
+[33mcommit 92cba15ad4a2ad99c745cf942713350611b40c7c[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 14:31:16 2024 +0700
+
+    onlyIndex
+
+[33mcommit d7ea76027722c0fa4215b88433fadfd659bb50ce[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 14:26:42 2024 +0700
+
+    WithoutViteConfig
+
+[33mcommit 470abb12ff85c9abe973369c20d10f8bb256b3d3[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 14:19:30 2024 +0700
+
+    viteConfig
+
+[33mcommit 3a0f160a50437c671b0db63f78479a483f790526[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 14:15:30 2024 +0700
+
+    IndexHtmlFix
+
+[33mcommit 283cf162c7c5161bc2be7b4080c41a842b2e3bd1[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 14:10:33 2024 +0700
+
+    fixPackage.json
+
+[33mcommit 247f603e9639e5863e981574b9f520324a2d9013[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 14:00:23 2024 +0700
+
+    newDocker-composeTest
+
+[33mcommit e014e9f9d019e355b1872f7768a0d50e2ce26b50[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 13:44:47 2024 +0700
+
+    fixForApache
+
+[33mcommit d417f2b0910b0b92760b33685fcfd4e62ff10c25[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 02:22:51 2024 +0700
+
+    changeto1337-5173
+
+[33mcommit e7cd7234280fde0ea14095fef72dd6dc7412c5b1[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 01:24:50 2024 +0700
+
+    fixPortDockerCompose2
+
+[33mcommit 32c809920d955b99772b509bf7d009a45d4f2b68[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 01:17:42 2024 +0700
+
+    updataDockercomposeYml
+
+[33mcommit 2505bdfaa92843f646a4f58798c9192f5ce98b76[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Sat Jul 13 00:52:18 2024 +0700
+
+    userDetailFixSever
+
+[33mcommit a000e80c04b5426c590b89b6361f191e90709745[m
+Merge: 67facbc 001f921
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Fri Jul 12 23:54:56 2024 +0700
+
+    Merge branch 'main' of https://github.com/Ryota445/Inventory-Project-Sever
+
+[33mcommit 67facbc41b80c1d0050e9fc8ea69fbcb01fb2033[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Fri Jul 12 23:54:44 2024 +0700
+
+    "test action deploy"
+
+[33mcommit 001f9215f434a06ff442f39f3aca66958cb6c441[m
+Author: Ryota445 <118673337+Ryota445@users.noreply.github.com>
+Date:   Fri Jul 12 23:52:52 2024 +0700
+
+    Update delete Docker Compose up deploy.yml
+
+[33mcommit aa90a3e81f6d0f67d36d2e6b8db399d755e7e346[m
+Merge: 6705fea d526b03
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Fri Jul 12 23:33:29 2024 +0700
+
+    Merge branch 'main' of https://github.com/Ryota445/Inventory-Project-Sever
+
+[33mcommit 6705feaf4eec29dca3322cf80e36f4e3b49f0bf5[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Fri Jul 12 23:33:20 2024 +0700
+
+    plus chmod +x node_modules
+
+[33mcommit d526b0333d130ba966fca959d10add5e8a1c1ac5[m
+Author: Ryota445 <118673337+Ryota445@users.noreply.github.com>
+Date:   Fri Jul 12 22:34:01 2024 +0700
+
+    Update Only pull on sever deploy.yml
+
+[33mcommit 852a50e95ef020e62d898c244495cc1d2b17f154[m
+Author: Ryota445 <118673337+Ryota445@users.noreply.github.com>
+Date:   Fri Jul 12 22:31:24 2024 +0700
+
+    Update swap file in deploy.yml
+
+[33mcommit 092ae28e4dad56c272a001bf1e8b3bc423a2bb23[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Fri Jul 12 01:21:36 2024 +0700
+
+    Initial commit for CI/CD
+
+[33mcommit 0ebef06a341e2446e801e3b7f20dc46bdb8cd822[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Thu Jul 11 19:03:30 2024 +0700
+
+    Initial commit

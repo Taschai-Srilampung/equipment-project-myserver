@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maintenance_reports",
+  "info": {
+    "singularName": "maintenance-report",
+    "pluralName": "maintenance-reports",
+    "displayName": "MaintenanceReport",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "inventory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::inventory.inventory",
+      "inversedBy": "maintenance_reports"
+    },
+    "company_inventory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::company-inventory.company-inventory"
+    },
+    "DateToDo": {
+      "type": "date"
+    },
+    "newDueDate": {
+      "type": "date"
+    },
+    "countNextToDueDate": {
+      "type": "integer"
+    },
+    "FileMaintenanceByAdmin": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "DueDate": {
+      "type": "date"
+    },
+    "sub_inventory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sub-inventory.sub-inventory",
+      "inversedBy": "maintenance_reports"
+    },
+    "isDone": {
+      "type": "boolean"
+    },
+    "isSubInventory": {
+      "type": "boolean"
+    },
+    "prize": {
+      "type": "decimal"
+    },
+    "DetailMaintenance": {
+      "type": "text"
+    },
+    "NameMaintenance": {
+      "type": "string"
+    },
+    "reportedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::responsible.responsible",
+      "inversedBy": "maintenance_reports"
+    }
+  }
+}

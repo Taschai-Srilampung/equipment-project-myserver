@@ -1,0 +1,174 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inventories",
+  "info": {
+    "singularName": "inventory",
+    "pluralName": "inventories",
+    "displayName": "Inventory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "id_inv": {
+      "type": "string"
+    },
+    "img_inv": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "DateOrder": {
+      "type": "date"
+    },
+    "DateRecive": {
+      "type": "date"
+    },
+    "serialNumber": {
+      "type": "string"
+    },
+    "company_inventory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company-inventory.company-inventory",
+      "inversedBy": "inventories"
+    },
+    "responsibles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::responsible.responsible",
+      "inversedBy": "inventories"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "inventories"
+    },
+    "building": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::building.building",
+      "inversedBy": "inventories"
+    },
+    "how_to_get": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::how-to-get.how-to-get",
+      "inversedBy": "inventories"
+    },
+    "year_money_get": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::year-money-get.year-money-get",
+      "inversedBy": "inventories"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "age_use": {
+      "type": "integer"
+    },
+    "information": {
+      "type": "text"
+    },
+    "source_money": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::source-money.source-money",
+      "inversedBy": "inventories"
+    },
+    "floor": {
+      "type": "string"
+    },
+    "room": {
+      "type": "string"
+    },
+    "status_inventory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::status-inventory.status-inventory"
+    },
+    "prize": {
+      "type": "decimal"
+    },
+    "allowedRepair": {
+      "type": "boolean"
+    },
+    "status_repair": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::status-repair.status-repair"
+    },
+    "repair_reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::repair-report.repair-report",
+      "mappedBy": "inventory"
+    },
+    "maintenance_reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::maintenance-report.maintenance-report",
+      "mappedBy": "inventory"
+    },
+    "request_change_locations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::request-change-location.request-change-location",
+      "inversedBy": "inventories"
+    },
+    "notDisposal": {
+      "type": "boolean"
+    },
+    "sub_inventories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-inventory.sub-inventory",
+      "mappedBy": "inventory"
+    },
+    "isDisposal": {
+      "type": "boolean"
+    },
+    "request_sent_backs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::request-sent-back.request-sent-back",
+      "mappedBy": "inventory"
+    },
+    "request_disposal": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::request-disposal.request-disposal",
+      "inversedBy": "inventories"
+    },
+    "isReporting": {
+      "type": "boolean"
+    },
+    "asset_code": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::unit.unit"
+    },
+    "quantity": {
+      "type": "string"
+    }
+  }
+}

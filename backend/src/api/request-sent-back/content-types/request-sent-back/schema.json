@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "request_sent_backs",
+  "info": {
+    "singularName": "request-sent-back",
+    "pluralName": "request-sent-backs",
+    "displayName": "RequestSentBack",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ReasonSentBack": {
+      "type": "text"
+    },
+    "FileReasonSentBack": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "inventory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::inventory.inventory",
+      "inversedBy": "request_sent_backs"
+    },
+    "isDone": {
+      "type": "boolean"
+    },
+    "Allowed": {
+      "type": "boolean"
+    },
+    "reportedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::responsible.responsible",
+      "inversedBy": "request_sent_backs"
+    }
+  }
+}

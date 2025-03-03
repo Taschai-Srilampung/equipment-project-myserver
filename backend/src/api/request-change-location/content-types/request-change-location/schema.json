@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "request_change_locations",
+  "info": {
+    "singularName": "request-change-location",
+    "pluralName": "request-change-locations",
+    "displayName": "RequestChangeLocation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NewLocationRoom": {
+      "type": "string"
+    },
+    "NewLocationFloor": {
+      "type": "string"
+    },
+    "building": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::building.building"
+    },
+    "inventories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::inventory.inventory",
+      "mappedBy": "request_change_locations"
+    },
+    "isDone": {
+      "type": "boolean"
+    },
+    "reportedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::responsible.responsible",
+      "inversedBy": "request_change_locations"
+    },
+    "OldLocationRoom": {
+      "type": "string"
+    },
+    "OldLocationFloor": {
+      "type": "string"
+    },
+    "Oldbuilding": {
+      "type": "string"
+    }
+  }
+}

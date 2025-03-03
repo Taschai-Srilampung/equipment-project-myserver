@@ -1,0 +1,11 @@
+[33mcommit 686e829d4a7a2292bf794d0c70c9cdb3434be3e1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Thu Jul 11 18:50:38 2024 +0700
+
+    Remove large file that exceeds GitHub size limit
+
+[33mcommit 8a47e09500b9e9a3de0dc305df0e04d60a61502b[m
+Author: Ryota445 <pee44523070@gmail.com>
+Date:   Thu Jul 11 18:42:38 2024 +0700
+
+    Initial commit

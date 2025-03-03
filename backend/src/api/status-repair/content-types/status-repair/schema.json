@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "status_repairs",
+  "info": {
+    "singularName": "status-repair",
+    "pluralName": "status-repairs",
+    "displayName": "StatusRepair"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nameStatusRepair": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "year_money_gets",
+  "info": {
+    "singularName": "year-money-get",
+    "pluralName": "year-money-gets",
+    "displayName": "yearMoneyGet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "yearMoneyGetName": {
+      "type": "string"
+    },
+    "inventories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inventory.inventory",
+      "mappedBy": "year_money_get"
+    }
+  }
+}

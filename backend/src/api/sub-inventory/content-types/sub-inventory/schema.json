@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_inventories",
+  "info": {
+    "singularName": "sub-inventory",
+    "pluralName": "sub-inventories",
+    "displayName": "SubInventory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "id_inv": {
+      "type": "string"
+    },
+    "serialNumber": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "status_inventory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::status-inventory.status-inventory"
+    },
+    "repair_reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::repair-report.repair-report",
+      "mappedBy": "sub_inventory"
+    },
+    "maintenance_reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::maintenance-report.maintenance-report",
+      "mappedBy": "sub_inventory"
+    },
+    "inventory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::inventory.inventory",
+      "inversedBy": "sub_inventories"
+    },
+    "isSubInventory": {
+      "type": "boolean"
+    }
+  }
+}

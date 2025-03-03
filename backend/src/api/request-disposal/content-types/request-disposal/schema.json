@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "request_disposals",
+  "info": {
+    "singularName": "request-disposal",
+    "pluralName": "request-disposals",
+    "displayName": "RequestDisposal",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ReasonDisposal": {
+      "type": "text"
+    },
+    "FileReasonDisposal": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "inventories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inventory.inventory",
+      "mappedBy": "request_disposal"
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "kind": "collectionType",
+  "collectionName": "repair_reports",
+  "info": {
+    "singularName": "repair-report",
+    "pluralName": "repair-reports",
+    "displayName": "RepairReport",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "inventory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::inventory.inventory",
+      "inversedBy": "repair_reports"
+    },
+    "RepairReasonByResponsible": {
+      "type": "text"
+    },
+    "ReportFileByResponsible": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "status_repair": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::status-repair.status-repair"
+    },
+    "company_inventory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::company-inventory.company-inventory"
+    },
+    "NameRepair": {
+      "type": "string"
+    },
+    "DetailRepairByAdmin": {
+      "type": "text"
+    },
+    "RepairPrice": {
+      "type": "decimal"
+    },
+    "FileRepairByAdmin": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "table_repair_and_maintenance": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::table-repair-and-maintenance.table-repair-and-maintenance",
+      "inversedBy": "repair_reports"
+    },
+    "sub_inventory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sub-inventory.sub-inventory",
+      "inversedBy": "repair_reports"
+    },
+    "isDone": {
+      "type": "boolean"
+    },
+    "isSubInventory": {
+      "type": "boolean"
+    },
+    "dateDoingRepair": {
+      "type": "date"
+    },
+    "dateFinishRepair": {
+      "type": "date"
+    },
+    "FileRepairDone": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "NumberRepairFaculty": {
+      "type": "string"
+    },
+    "ResultConsider": {
+      "type": "string"
+    },
+    "DetailConsider": {
+      "type": "text"
+    },
+    "ListDetailRepair": {
+      "type": "text"
+    },
+    "FileConsider": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isCanRepair": {
+      "type": "boolean"
+    },
+    "reportedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::responsible.responsible",
+      "inversedBy": "repair_reports"
+    }
+  }
+}
