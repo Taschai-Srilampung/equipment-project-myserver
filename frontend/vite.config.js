@@ -8,8 +8,9 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173,
     hmr: {
-      host: 'www2.math.sc.chula.ac.th',
-      protocol: 'ws',
+      host: 'myryolife.tech', // เปลี่ยนเป็นโดเมนของคุณ
+      protocol: 'wss', // ใช้ wss:// แทน ws://
     },
   },
 })
+

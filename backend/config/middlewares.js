@@ -8,7 +8,9 @@ module.exports = [
       origin: [
         'http://localhost:5173',
         'http://47.128.3.91:5173', 
-        'http://47.128.3.91:1337'  
+        'http://47.128.3.91:1337',
+	'https://myryolife.tech',
+	'https://www.myryolife.tech'  
       ],
     },
   },
